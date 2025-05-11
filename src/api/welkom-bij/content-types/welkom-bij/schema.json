@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "welkom_bijs",
+  "info": {
+    "singularName": "welkom-bij",
+    "pluralName": "welkom-bijs",
+    "displayName": "Welkom Bij"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "omschrijving": {
+      "type": "blocks",
+      "required": true
+    }
+  }
+}

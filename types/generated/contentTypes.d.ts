@@ -373,10 +373,11 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiBannerBanner extends Struct.CollectionTypeSchema {
+export interface ApiBannerBanner extends Struct.SingleTypeSchema {
   collectionName: 'banners';
   info: {
-    displayName: 'Banner';
+    description: '';
+    displayName: 'Banners';
     pluralName: 'banners';
     singularName: 'banner';
   };
@@ -384,10 +385,8 @@ export interface ApiBannerBanner extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    Bannerimages: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
+    Bannerimages: Schema.Attribute.Media<'images' | 'files', true> &
+      Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -397,6 +396,223 @@ export interface ApiBannerBanner extends Struct.CollectionTypeSchema {
       'api::banner.banner'
     > &
       Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBegeleidingBegeleiding extends Struct.SingleTypeSchema {
+  collectionName: 'begeleidings';
+  info: {
+    displayName: 'Begeleiding';
+    pluralName: 'begeleidings';
+    singularName: 'begeleiding';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::begeleiding.begeleiding'
+    > &
+      Schema.Attribute.Private;
+    omschrijving: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiCollegaCollega extends Struct.CollectionTypeSchema {
+  collectionName: 'collegas';
+  info: {
+    displayName: "Collega's";
+    pluralName: 'collegas';
+    singularName: 'collega';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    foto: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::collega.collega'
+    > &
+      Schema.Attribute.Private;
+    naam: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    omschrijving: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDienstenDiensten extends Struct.CollectionTypeSchema {
+  collectionName: 'dienstens';
+  info: {
+    description: '';
+    displayName: 'Diensten';
+    pluralName: 'dienstens';
+    singularName: 'diensten';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::diensten.diensten'
+    > &
+      Schema.Attribute.Private;
+    naam: Schema.Attribute.String & Schema.Attribute.Required;
+    omschrijving: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    per_dag_deel: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+    prijs: Schema.Attribute.Decimal & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFinancieringFinanciering extends Struct.SingleTypeSchema {
+  collectionName: 'financierings';
+  info: {
+    description: '';
+    displayName: 'Financiering';
+    pluralName: 'financierings';
+    singularName: 'financiering';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::financiering.financiering'
+    > &
+      Schema.Attribute.Private;
+    omschrijving: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiLocatieLocatie extends Struct.SingleTypeSchema {
+  collectionName: 'locaties';
+  info: {
+    description: '';
+    displayName: 'Contact';
+    pluralName: 'locaties';
+    singularName: 'locatie';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.String;
+    facebook_url: Schema.Attribute.String;
+    huisnummer: Schema.Attribute.String & Schema.Attribute.Required;
+    instagram_url: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::locatie.locatie'
+    > &
+      Schema.Attribute.Private;
+    plaats: Schema.Attribute.String & Schema.Attribute.Required;
+    postcode: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    straat_naam: Schema.Attribute.String & Schema.Attribute.Required;
+    telefoon_nummer: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    whatsapp_nummer: Schema.Attribute.String;
+  };
+}
+
+export interface ApiOverMijOverMij extends Struct.SingleTypeSchema {
+  collectionName: 'over_mijs';
+  info: {
+    displayName: 'Over Mij';
+    pluralName: 'over-mijs';
+    singularName: 'over-mij';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::over-mij.over-mij'
+    > &
+      Schema.Attribute.Private;
+    omschrijving: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiWelkomBijWelkomBij extends Struct.SingleTypeSchema {
+  collectionName: 'welkom_bijs';
+  info: {
+    displayName: 'Welkom Bij';
+    pluralName: 'welkom-bijs';
+    singularName: 'welkom-bij';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::welkom-bij.welkom-bij'
+    > &
+      Schema.Attribute.Private;
+    omschrijving: Schema.Attribute.Blocks & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -914,6 +1130,13 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::banner.banner': ApiBannerBanner;
+      'api::begeleiding.begeleiding': ApiBegeleidingBegeleiding;
+      'api::collega.collega': ApiCollegaCollega;
+      'api::diensten.diensten': ApiDienstenDiensten;
+      'api::financiering.financiering': ApiFinancieringFinanciering;
+      'api::locatie.locatie': ApiLocatieLocatie;
+      'api::over-mij.over-mij': ApiOverMijOverMij;
+      'api::welkom-bij.welkom-bij': ApiWelkomBijWelkomBij;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "collegas",
+  "info": {
+    "singularName": "collega",
+    "pluralName": "collegas",
+    "displayName": "Collega's"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "naam": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "foto": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "omschrijving": {
+      "type": "blocks",
+      "required": true
+    }
+  }
+}

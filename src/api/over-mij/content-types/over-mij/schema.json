@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "over_mijs",
+  "info": {
+    "singularName": "over-mij",
+    "pluralName": "over-mijs",
+    "displayName": "Over Mij"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "omschrijving": {
+      "type": "blocks",
+      "required": true
+    }
+  }
+}

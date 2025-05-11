@@ -1,0 +1,19 @@
+{
+  "kind": "singleType",
+  "collectionName": "financierings",
+  "info": {
+    "singularName": "financiering",
+    "pluralName": "financierings",
+    "displayName": "Financiering",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "omschrijving": {
+      "type": "blocks",
+      "required": true
+    }
+  }
+}

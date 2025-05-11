@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dienstens",
+  "info": {
+    "singularName": "diensten",
+    "pluralName": "dienstens",
+    "displayName": "Diensten",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "naam": {
+      "type": "string",
+      "required": true
+    },
+    "per_dag_deel": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "prijs": {
+      "type": "decimal",
+      "required": true
+    },
+    "omschrijving": {
+      "type": "blocks",
+      "required": true
+    }
+  }
+}

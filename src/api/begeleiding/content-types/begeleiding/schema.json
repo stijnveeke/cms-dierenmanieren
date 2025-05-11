@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "begeleidings",
+  "info": {
+    "singularName": "begeleiding",
+    "pluralName": "begeleidings",
+    "displayName": "Begeleiding"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "omschrijving": {
+      "type": "blocks",
+      "required": true
+    }
+  }
+}

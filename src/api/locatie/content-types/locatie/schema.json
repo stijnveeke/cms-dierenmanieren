@@ -1,0 +1,46 @@
+{
+  "kind": "singleType",
+  "collectionName": "locaties",
+  "info": {
+    "singularName": "locatie",
+    "pluralName": "locaties",
+    "displayName": "Contact",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "straat_naam": {
+      "type": "string",
+      "required": true
+    },
+    "huisnummer": {
+      "type": "string",
+      "required": true
+    },
+    "postcode": {
+      "type": "string",
+      "required": true
+    },
+    "plaats": {
+      "type": "string",
+      "required": true
+    },
+    "facebook_url": {
+      "type": "string"
+    },
+    "instagram_url": {
+      "type": "string"
+    },
+    "whatsapp_nummer": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "telefoon_nummer": {
+      "type": "string"
+    }
+  }
+}

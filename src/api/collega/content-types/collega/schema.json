@@ -4,7 +4,8 @@
   "info": {
     "singularName": "collega",
     "pluralName": "collegas",
-    "displayName": "Collega's"
+    "displayName": "Collega's",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,18 +17,23 @@
       "unique": true
     },
     "foto": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
+      ]
     },
     "omschrijving": {
       "type": "blocks",
+      "required": true
+    },
+    "positie": {
+      "type": "integer",
+      "default": 0,
       "required": true
     }
   }

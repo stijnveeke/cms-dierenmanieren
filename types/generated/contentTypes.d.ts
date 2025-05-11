@@ -434,6 +434,7 @@ export interface ApiBegeleidingBegeleiding extends Struct.SingleTypeSchema {
 export interface ApiCollegaCollega extends Struct.CollectionTypeSchema {
   collectionName: 'collegas';
   info: {
+    description: '';
     displayName: "Collega's";
     pluralName: 'collegas';
     singularName: 'collega';
@@ -457,6 +458,9 @@ export interface ApiCollegaCollega extends Struct.CollectionTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
     omschrijving: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    positie: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<0>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -490,6 +494,7 @@ export interface ApiDienstenDiensten extends Struct.CollectionTypeSchema {
     per_dag_deel: Schema.Attribute.Boolean &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<false>;
+    positie: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
     prijs: Schema.Attribute.Decimal & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;

@@ -27,6 +27,10 @@
     "omschrijving": {
       "type": "blocks",
       "required": true
+    },
+    "positie": {
+      "type": "integer",
+      "default": 0
     }
   }
 }
